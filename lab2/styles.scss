@@ -1,0 +1,157 @@
+// _______________ 
+//|               |
+//|     Task2     |
+//|_______________|
+
+$content-element-width: 84%;
+$page-top-margin: 20px;
+$grey-text-color: #9999a6;
+$input-field-padding: 5px;
+
+#page-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #content-wrap {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 66%;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+
+        header, .navigation-list, main, footer, nav {
+            align-items: center;
+            width: $content-element-width;
+        }
+
+        header, .navigation-list {
+            margin-top: $page-top-margin;
+            display: flex;  
+        }
+
+        header {
+            flex-direction: row;
+
+            #search-bar {
+                margin-left: auto;
+
+                input, button {
+                    padding-top: $input-field-padding;
+                    padding-bottom: $input-field-padding;
+                }
+            }
+        }
+
+        .navigation-list {
+            width: 100%;
+            .navigation-link {
+                padding-right: 10px;
+            }
+        
+            button {
+                margin-left: auto;
+            }
+        }
+
+        main {
+            .break-line {
+                //width: 42%;
+                width: 25vw;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                border-bottom: 1px solid black;
+            }
+
+            .section-heading {
+                text-align: center;
+            }
+
+            #filter {
+                .selector-label, #photo-check-label {
+                    color: $grey-text-color;
+                }
+
+                select {
+                    padding-top: $input-field-padding;
+                    padding-bottom: $input-field-padding;
+                }
+
+                .vertical-line {
+                    border-right: 1px dashed $grey-text-color;
+                    margin-left: 0.5vw;
+                    margin-right: 1vw;
+                }
+            }
+
+            .teachers-display {
+                margin-top: 15px;
+                display: grid;
+                grid-template-columns: repeat(10, 1fr);
+                gap: 30px;
+                .grid-item {                    
+                    img{
+                        //height: 8vw;
+                        height: 110px;
+                        border-radius: 50%;
+                        border: 3px solid #f99589;
+                    }
+
+                    .field {
+                        color: $grey-text-color;
+                    }
+                }
+            }
+
+            // changing number of grid columns based on screen width
+
+            @media screen and (max-width: 2000px){
+                .teachers-display {
+                    grid-template-columns: repeat(7, 1fr);
+                }
+            }
+
+            @media screen and (max-width: 1686px){
+                .teachers-display {
+                    grid-template-columns: repeat(6, 1fr);
+                }
+            }
+
+            @media screen and (max-width: 1468px){
+                .teachers-display {
+                    grid-template-columns: repeat(5, 1fr);
+                }
+            }
+
+            @media screen and (max-width: 1268px){
+                .teachers-display {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+
+            @media screen and (max-width: 1024px){
+                .teachers-display {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media screen and (max-width: 768px){
+                .teachers-display {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    }
+
+    #blank-sidebar {
+        position: absolute;
+        bottom: 0;
+        width: 17%;
+    }
+}
