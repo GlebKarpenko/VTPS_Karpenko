@@ -104,6 +104,31 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+#page-container #content-wrap main #statistics-wrapper table {
+  width: 100%;
+}
+#page-container #content-wrap main #statistics-wrapper table th {
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+#page-container #content-wrap main #statistics-wrapper table th:first-child {
+  text-align: left;
+}
+#page-container #content-wrap main #statistics-wrapper table tr:nth-child(even) {
+  background-color: #f9f5f9;
+}
+#page-container #content-wrap main #statistics-wrapper .pagination {
+  margin-top: 20px;
+}
+#page-container #content-wrap main #statistics-wrapper .pagination button {
+  margin: 4px;
+  color: #1a9cb0;
+  background-color: transparent;
+  border: none;
+}
+#page-container #content-wrap main #statistics-wrapper .pagination button:focus {
+  color: #2261a9;
+}
 #page-container #content-wrap footer {
   margin-top: auto;
 }

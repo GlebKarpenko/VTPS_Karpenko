@@ -142,6 +142,43 @@ $input-field-padding: 5px;
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
+
+            #statistics-wrapper{
+                table {
+                    $row-color: #f9f5f9;
+                    width: 100%;
+
+                    th {
+                        border-bottom: 1px solid;
+                        padding: 10px;
+                    }
+
+                    th:first-child {
+                        text-align: left;
+                    }
+
+                    tr:nth-child(even){
+                        background-color: $row-color;
+                    }
+                }
+
+                .pagination {
+                    $primary-color: #1a9cb0;
+                    $activated-color: #2261a9;
+                    margin-top: $page-top-margin;
+
+                    button {
+                        margin: 4px;
+                        color: $primary-color;
+                        background-color: transparent;
+                        border: none;
+                    }
+
+                    button:focus{
+                        color: $activated-color;
+                    }
+                }
+            }
         }
 
         footer {
