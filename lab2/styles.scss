@@ -91,17 +91,18 @@ $input-field-padding: 5px;
                 display: grid;
                 grid-template-columns: repeat(10, 1fr);
                 gap: 30px;
-                .grid-item {                    
-                    img{
-                        //height: 8vw;
-                        height: 110px;
-                        border-radius: 50%;
-                        border: 3px solid #f99589;
-                    }
+            }
 
-                    .field {
-                        color: $grey-text-color;
-                    }
+            .grid-item {                    
+                img{
+                    //height: 8vw;
+                    height: 110px;
+                    border-radius: 50%;
+                    border: 3px solid #f99589;
+                }
+
+                .field {
+                    color: $grey-text-color;
                 }
             }
 
@@ -177,6 +178,19 @@ $input-field-padding: 5px;
                     button:focus{
                         color: $activated-color;
                     }
+                }
+            }
+
+            .item-slider {
+                display: flex;
+                align-items: center;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                margin: 0 10px;
+                margin-top: 15px;
+
+                .grid-item {
+                    margin-left: 3vw;
                 }
             }
         }
