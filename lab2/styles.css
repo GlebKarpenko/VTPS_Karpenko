@@ -101,7 +101,7 @@
 }
 @media screen and (max-width: 768px) {
   #page-container #content-wrap main .teachers-display {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 #page-container #content-wrap main #statistics-wrapper table {
@@ -142,6 +142,11 @@
 }
 #page-container #content-wrap footer {
   margin-top: auto;
+}
+@media screen and (max-width: 768px) {
+  #page-container #content-wrap {
+    width: 100%;
+  }
 }
 #page-container #blank-sidebar {
   position: absolute;

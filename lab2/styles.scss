@@ -138,9 +138,10 @@ $input-field-padding: 5px;
                 }
             }
 
+            // increase number of grids again after blank sidebars are removed
             @media screen and (max-width: 768px){
                 .teachers-display {
-                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-columns: repeat(4, 1fr);
                 }
             }
 
@@ -197,6 +198,13 @@ $input-field-padding: 5px;
 
         footer {
             margin-top: auto;
+        }
+    }
+
+    // remove blank sidebars on small screens
+    @media screen and (max-width: 768px) {
+        #content-wrap {
+            width: 100%;
         }
     }
 
