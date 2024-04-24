@@ -66,10 +66,23 @@
   grid-template-columns: repeat(10, 1fr);
   gap: 30px;
 }
-#page-container #content-wrap main .grid-item img {
-  height: 110px;
+#page-container #content-wrap main .grid-item .image-wrapper {
   border-radius: 50%;
+  width: 110px;
+  height: 110px;
   border: 3px solid #f99589;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+#page-container #content-wrap main .grid-item .image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+#page-container #content-wrap main .grid-item .image-wrapper:hover img {
+  transform: scale(1.2);
 }
 #page-container #content-wrap main .grid-item .field {
   color: #9999a6;
@@ -143,6 +156,18 @@
 #page-container #content-wrap footer {
   margin-top: auto;
 }
+#page-container .popup {
+  display: none;
+  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  border: 1px solid #ccc;
+  background-color: #f9f5f9;
+}
 @media screen and (max-width: 768px) {
   #page-container #content-wrap {
     width: 100%;
@@ -152,17 +177,6 @@
   position: absolute;
   bottom: 0;
   width: 17%;
-}/*# sourceMappingURL=styles.css.map */
-
-.popup {
-  display: none;
-  position:absolute;
-  position: fixed; 
-  top: 50%; 
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-  height: 40%;
-  border: 1px solid #ccc;
-  background-color:#f9f5f9;
 }
+
+/*# sourceMappingURL=styles.css.map */
