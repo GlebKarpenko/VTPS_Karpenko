@@ -199,6 +199,20 @@ $input-field-padding: 5px;
         footer {
             margin-top: auto;
         }
+
+        // popup was added directly in .css because compiler skips element with display: none
+        /*
+        .popup {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10%;
+            height: 10%;
+            border: 1px solid #ccc;
+            background-color:#f9f5f9;
+        }
+        */
     }
 
     // remove blank sidebars on small screens
