@@ -5,12 +5,24 @@
 
 $content-element-width: 84%;
 $page-top-margin: 20px;
-$input-field-padding: 7px;
+$input-field-padding: 5px;
 
 $grey-text-color: #9999a6;
 $red-light-color: #f99589;
 $red-color: #f75c49;
 $red-dark-color: #cc4836;
+
+@mixin main-font-style() {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@mixin thin-font-style() {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 #page-container {
     position: relative;
@@ -56,13 +68,12 @@ $red-dark-color: #cc4836;
                 input, button {
                     padding-top: $input-field-padding;
                     padding-bottom: $input-field-padding;
+                    font-size: small;
                 }
 
                 input {
+                    @include thin-font-style();
                     width: 180px;
-                    font-family: "Roboto", sans-serif;
-                    font-weight: 400;
-                    font-style: normal;
                     margin-right: 12px; 
                     transition: all 0.5s ease;
                 }
@@ -73,14 +84,12 @@ $red-dark-color: #cc4836;
                 }
 
                 button {
+                    @include main-font-style();
                     color: $red-color;
                     background-color: white;
                     border: 1px solid $red-color;
                     padding-left: 2 * $input-field-padding;
-                    padding-right: 2 * $input-field-padding;
-                    font-family: "Roboto", sans-serif;
-                    font-weight: 500;
-                    font-style: normal;
+                    padding-right: 2 * $input-field-padding;      
                     transition: all 0.5s ease;
                 }
 
@@ -96,10 +105,8 @@ $red-dark-color: #cc4836;
             margin-bottom: 30px;
 
             .navigation-link {
+                @include main-font-style();
                 margin-right: 2vw;
-                font-family: "Roboto", sans-serif;
-                font-weight: 500;
-                font-style: normal;
                 color: $red-color;
                 text-decoration: none;
             }
@@ -110,11 +117,9 @@ $red-dark-color: #cc4836;
             }
         
             button {
+                @include main-font-style();
                 margin-left: auto;
                 padding: $input-field-padding 2.5 * $input-field-padding;
-                font-family: "Roboto", sans-serif;
-                font-weight: 500;
-                font-style: normal;
                 font-size: 16px;
                 color: $red-color;
                 background-color: white;
@@ -137,20 +142,28 @@ $red-dark-color: #cc4836;
             }
 
             .section-heading {
+                @include main-font-style();
                 text-align: center;
             }
 
             #filter {
-                .selector-label, #photo-check-label {
-                    color: $grey-text-color;
-                }
+                @include thin-font-style();
+                font-size: smaller;
+                color: $grey-text-color;
 
                 select {
                     padding-top: $input-field-padding;
                     padding-bottom: $input-field-padding;
                 }
 
+                .check-label:hover {
+                    color: black;
+                    transition: all 0.3s ease;
+                }
+
                 .vertical-line {
+                    padding-top: 6px;
+                    padding-bottom: 6px;
                     border-right: 1px dashed $grey-text-color;
                     margin-left: 0.5vw;
                     margin-right: 1vw;
@@ -158,7 +171,7 @@ $red-dark-color: #cc4836;
             }
 
             .teachers-display {
-                margin-top: 15px;
+                margin-top: 30px;
                 display: grid;
                 grid-template-columns: repeat(10, 1fr);
                 gap: 30px;
@@ -195,7 +208,6 @@ $red-dark-color: #cc4836;
                     color: $grey-text-color;
                 }
             }
-
 
             // changing number of grid columns based on screen width
 

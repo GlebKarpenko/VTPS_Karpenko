@@ -37,14 +37,15 @@
   margin-left: auto;
 }
 #page-container #content-wrap header #search-bar input, #page-container #content-wrap header #search-bar button {
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: small;
 }
 #page-container #content-wrap header #search-bar input {
-  width: 180px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+  width: 180px;
   margin-right: 12px;
   transition: all 0.5s ease;
 }
@@ -53,14 +54,14 @@
   transition: all 0.5s ease;
 }
 #page-container #content-wrap header #search-bar button {
-  color: #f75c49;
-  background-color: white;
-  border: 1px solid #f75c49;
-  padding-left: 14px;
-  padding-right: 14px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
+  color: #f75c49;
+  background-color: white;
+  border: 1px solid #f75c49;
+  padding-left: 10px;
+  padding-right: 10px;
   transition: all 0.5s ease;
 }
 #page-container #content-wrap header #search-bar button:hover {
@@ -72,10 +73,10 @@
   margin-bottom: 30px;
 }
 #page-container #content-wrap .navigation-list .navigation-link {
-  margin-right: 2vw;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
+  margin-right: 2vw;
   color: #f75c49;
   text-decoration: none;
 }
@@ -84,11 +85,11 @@
   transition: all 0.2s ease;
 }
 #page-container #content-wrap .navigation-list button {
-  margin-left: auto;
-  padding: 7px 17.5px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
+  margin-left: auto;
+  padding: 5px 12.5px;
   font-size: 16px;
   color: #f75c49;
   background-color: white;
@@ -105,22 +106,35 @@
   border-bottom: 1px solid black;
 }
 #page-container #content-wrap main .section-heading {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
   text-align: center;
 }
-#page-container #content-wrap main #filter .selector-label, #page-container #content-wrap main #filter #photo-check-label {
+#page-container #content-wrap main #filter {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: smaller;
   color: #9999a6;
 }
 #page-container #content-wrap main #filter select {
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#page-container #content-wrap main #filter .check-label:hover {
+  color: black;
+  transition: all 0.3s ease;
 }
 #page-container #content-wrap main #filter .vertical-line {
+  padding-top: 6px;
+  padding-bottom: 6px;
   border-right: 1px dashed #9999a6;
   margin-left: 0.5vw;
   margin-right: 1vw;
 }
 #page-container #content-wrap main .teachers-display {
-  margin-top: 15px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 30px;
