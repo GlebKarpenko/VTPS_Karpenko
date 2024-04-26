@@ -36,6 +36,7 @@ $input-field-padding: 5px;
             flex-direction: row;
 
             .logo-wrap {
+                width: min-content;
                 img {
                     min-width: 200px;
                     width: 40%;
