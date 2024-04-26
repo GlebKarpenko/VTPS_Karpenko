@@ -23,6 +23,10 @@
 #page-container #content-wrap header {
   flex-direction: row;
 }
+#page-container #content-wrap header .logo-wrap img {
+  min-width: 200px;
+  width: 40%;
+}
 #page-container #content-wrap header #search-bar {
   margin-left: auto;
 }

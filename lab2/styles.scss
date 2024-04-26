@@ -35,6 +35,13 @@ $input-field-padding: 5px;
         header {
             flex-direction: row;
 
+            .logo-wrap {
+                img {
+                    min-width: 200px;
+                    width: 40%;
+                }
+            }
+
             #search-bar {
                 margin-left: auto;
 
