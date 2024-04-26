@@ -253,7 +253,26 @@
 #page-container #content-wrap main #statistics-wrapper .pagination button:focus {
   color: #2261a9;
 }
-#page-container #content-wrap main .item-slider {
+#page-container #content-wrap main .slider-wrapper {
+  position: relative;
+}
+#page-container #content-wrap main .slider-wrapper button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+}
+#page-container #content-wrap main .slider-wrapper #slide-left {
+  left: -40px;
+}
+#page-container #content-wrap main .slider-wrapper #slide-right {
+  right: -40px;
+}
+#page-container #content-wrap main .slider-wrapper .item-slider {
   display: flex;
   align-items: center;
   overflow-x: auto;
@@ -261,7 +280,7 @@
   margin: 0 10px;
   margin-top: 15px;
 }
-#page-container #content-wrap main .item-slider .grid-item {
+#page-container #content-wrap main .slider-wrapper .item-slider .grid-item {
   margin-left: 3vw;
 }
 #page-container #content-wrap footer {
