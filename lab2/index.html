@@ -14,8 +14,14 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+        <!--
+            Icons
+        -->
+        <script src="https://kit.fontawesome.com/189510e7e3.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        <script type="module" src="script.js"></script>
         <div id="page-container">
             <div id="blank-sidebar"></div>
             <div id="content-wrap">
@@ -274,8 +280,8 @@
                     <hr class="break-line">
                     <h2 class="section-heading">Favourites</h2>
                     <div class="slider-wrapper">
-                        <button id="slide-left">Left</button>
-                        <div class="item-slider">
+                        <button id="slide-left"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div id="item-slider">
                             <div class="grid-item">
                                 <div class="image-wrapper">
                                     <img src="aboutus.jpg" alt="Avatar">
@@ -349,7 +355,7 @@
                                 <span class="region">Ukraine</span>
                             </div>
                         </div>
-                        <button id="slide-right">Right</button>
+                        <button id="slide-right"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                     <hr class="break-line">
                 </main>
@@ -387,6 +393,5 @@
                 <button class="popup-controller">Close</button>
             </div>
         </div>
-        <script src="script.js"></script>
     </body>
 </html>
