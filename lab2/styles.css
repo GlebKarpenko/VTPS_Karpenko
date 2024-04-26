@@ -22,6 +22,7 @@
 }
 #page-container #content-wrap header {
   flex-direction: row;
+  margin-bottom: 20px;
 }
 #page-container #content-wrap header .logo-wrap {
   width: min-content;
@@ -68,17 +69,39 @@
 }
 #page-container #content-wrap .navigation-list {
   width: 100%;
+  margin-bottom: 30px;
 }
 #page-container #content-wrap .navigation-list .navigation-link {
-  padding-right: 10px;
+  margin-right: 2vw;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #f75c49;
+  text-decoration: none;
+}
+#page-container #content-wrap .navigation-list .navigation-link:hover {
+  color: #cc4836;
+  transition: all 0.2s ease;
 }
 #page-container #content-wrap .navigation-list button {
   margin-left: auto;
+  padding: 7px 17.5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: #f75c49;
+  background-color: white;
+  border: 1px solid #f75c49;
+  transition: all 0.5s ease;
+}
+#page-container #content-wrap .navigation-list button:hover {
+  color: white;
+  background-color: #f75c49;
 }
 #page-container #content-wrap main .break-line {
   width: 25vw;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   border-bottom: 1px solid black;
 }
 #page-container #content-wrap main .section-heading {

@@ -38,6 +38,7 @@ $red-dark-color: #cc4836;
 
         header {
             flex-direction: row;
+            margin-bottom: 20px;
 
             .logo-wrap {
                 width: min-content;
@@ -92,12 +93,38 @@ $red-dark-color: #cc4836;
 
         .navigation-list {
             width: 100%;
+            margin-bottom: 30px;
+
             .navigation-link {
-                padding-right: 10px;
+                margin-right: 2vw;
+                font-family: "Roboto", sans-serif;
+                font-weight: 500;
+                font-style: normal;
+                color: $red-color;
+                text-decoration: none;
+            }
+
+            .navigation-link:hover {
+                color: $red-dark-color;
+                transition: all 0.2s ease;
             }
         
             button {
                 margin-left: auto;
+                padding: $input-field-padding 2.5 * $input-field-padding;
+                font-family: "Roboto", sans-serif;
+                font-weight: 500;
+                font-style: normal;
+                font-size: 16px;
+                color: $red-color;
+                background-color: white;
+                border: 1px solid $red-color;
+                transition: all 0.5s ease;
+            }
+
+            button:hover {
+                color: white;
+                background-color: $red-color;
             }
         }
 
@@ -105,8 +132,7 @@ $red-dark-color: #cc4836;
             .break-line {
                 //width: 42%;
                 width: 25vw;
-                margin-top: 40px;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 border-bottom: 1px solid black;
             }
 
