@@ -178,10 +178,16 @@ $red-dark-color: #cc4836;
             }
 
             .grid-item {   
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+
                 .image-wrapper {
                     border-radius: 50%;
                     width: 110px;
                     height: 110px;
+                    margin-left: auto;
+                    margin-right: auto;
                     border: 3px solid $red-light-color;
                     position: relative;
                     overflow: hidden;
@@ -194,6 +200,7 @@ $red-dark-color: #cc4836;
                         object-fit: cover;
                         transition: transform 0.3s ease-in-out;
                     }
+                    margin-bottom: 15px;
                 }
 
                 .image-wrapper:hover {
@@ -204,8 +211,26 @@ $red-dark-color: #cc4836;
                     transform: scale(1.2);
                 }
 
+                span {
+                    @include thin-font-style();
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .first-name, .last-name {
+                    font-weight: 500
+                }
+
                 .field {
+                    padding-top: 10px;
+                    font-size: 12px;
                     color: $grey-text-color;
+                }
+
+                .region {
+                    padding-top: 5px;
+                    font-size: x-small;
                 }
             }
 
@@ -213,17 +238,11 @@ $red-dark-color: #cc4836;
 
             @media screen and (max-width: 2000px){
                 .teachers-display {
-                    grid-template-columns: repeat(7, 1fr);
-                }
-            }
-
-            @media screen and (max-width: 1686px){
-                .teachers-display {
                     grid-template-columns: repeat(6, 1fr);
                 }
             }
 
-            @media screen and (max-width: 1468px){
+            @media screen and (max-width: 1686px){
                 .teachers-display {
                     grid-template-columns: repeat(5, 1fr);
                 }
@@ -244,18 +263,20 @@ $red-dark-color: #cc4836;
             // increase number of grids again after blank sidebars are removed
             @media screen and (max-width: 768px){
                 .teachers-display {
-                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-columns: repeat(3, 1fr);
                 }
             }
 
             #statistics-wrapper{
                 table {
+                    @include thin-font-style();
                     $row-color: #f9f5f9;
                     width: 100%;
 
                     th {
                         border-bottom: 1px solid;
                         padding: 10px;
+                        font-weight: 300;
                     }
 
                     th:first-child {
@@ -264,6 +285,18 @@ $red-dark-color: #cc4836;
 
                     tr:nth-child(even){
                         background-color: $row-color;
+                    }
+
+                    td {
+                        font-weight: 300;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        font-size: 12px;
+                        text-align: center;
+                    }
+
+                    td:first-child {
+                        text-align: left;
                     }
                 }
 
@@ -300,6 +333,9 @@ $red-dark-color: #cc4836;
         }
 
         footer {
+            @include main-font-style();
+            font-weight: 300;
+            font-size: small;
             margin-top: auto;
         }
     }
