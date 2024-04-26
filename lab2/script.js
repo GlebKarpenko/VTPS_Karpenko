@@ -14,3 +14,17 @@ let popupDisplayController = () => {
 popupControllerButtons.forEach((item) => {
     item.addEventListener('click', popupDisplayController);
 })
+
+let hoverTimer;
+
+// Change the src attribute to the hover image with timed delay and animation
+function changeLogo(imgSrc) {
+    clearTimeout(hoverTimer);
+    let logo = document.getElementById('logo');
+    logo.style.opacity = '0';
+
+    hoverTimer = setTimeout(function() {
+        logo.src = imgSrc;
+        logo.style.opacity = '1';
+    }, 300);
+}
