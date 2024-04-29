@@ -286,21 +286,131 @@
   user-select: none;
 }
 
-.popup {
+#add-teacher {
   position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
   width: 600px;
   height: 400px;
   border: 1px solid #ccc;
   background-color: #f9f5f9;
-  visibility: hidden;
-  opacity: 0;
+}
+
+#add-teacher.active {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
   transition: 0.5s;
 }
 
-.popup.active {
+#teacher-info {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  width: 600px;
+  border: 1px solid #ccc;
+  box-shadow: 4px 4px 10px #9999a6;
+  background-color: white;
+}
+#teacher-info .window-panel {
+  display: inline-flex;
+  width: 100%;
+  height: 40px;
+  background-color: #464547;
+  color: white;
+}
+#teacher-info .window-panel .window-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: medium;
+  align-self: center;
+  margin-left: 10px;
+}
+#teacher-info .window-panel button {
+  margin-left: auto;
+  margin-right: 5px;
+  background-color: #464547;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+}
+#teacher-info .window-panel button i {
+  color: white;
+  font-size: medium;
+}
+#teacher-info .content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+#teacher-info .content .pfp-container {
+  flex: 1;
+}
+#teacher-info .content .pfp-container img {
+  width: 100%;
+}
+#teacher-info .content .main-info {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  flex: 2;
+  margin-left: 30px;
+  display: block;
+}
+#teacher-info .content .main-info span {
+  display: inline-block;
+}
+#teacher-info .content .main-info #card-name {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+#teacher-info .content .main-info #card-field {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+#teacher-info .content .main-info #card-region, #teacher-info .content .main-info #card-age-gender, #teacher-info .content .main-info #card-email, #teacher-info .content .main-info #card-phone {
+  font-size: 11px;
+  color: #464547;
+  margin-bottom: 5px;
+}
+#teacher-info .content .main-info #card-email {
+  color: #1a9cb0;
+}
+#teacher-info .content .main-info #card-email:hover {
+  color: #2261a9;
+  cursor: pointer;
+}
+#teacher-info .content #card-comment {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: 200;
+  flex-basis: 100%;
+  font-size: 11px;
+  color: #464547;
+}
+#teacher-info .content a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: underline dashed;
+  color: #1a9cb0;
+}
+#teacher-info .content a:hover {
+  color: #2261a9;
+}
+
+#teacher-info.active {
   top: 50%;
   visibility: visible;
   opacity: 1;
