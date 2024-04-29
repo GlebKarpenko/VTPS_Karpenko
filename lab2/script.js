@@ -20,18 +20,11 @@ rightButton.addEventListener('click', () => {
     });
 });
 
-let popupDisplayController = () => {
-    let popupMenu = document.querySelector('.popup');
-    if (popupMenu.style.display === 'none' || popupMenu.style.display === '') {
-        popupMenu.style.display = 'block';
-        console.log('clicked');
-    } else {
-        popupMenu.style.display = 'none';
-    }
-}
-
 popupControllerButtons.forEach((item) => {
-    item.addEventListener('click', popupDisplayController);
+    item.addEventListener('click', () => {
+        document.querySelector('.popup').classList.toggle('active');
+        document.getElementById('page-container').classList.toggle('blured');
+    });
 })
 
 // Change the src attribute to the hover image with timed delay and animation

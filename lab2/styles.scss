@@ -336,19 +336,6 @@ $red-dark-color: #cc4836;
         }
     }
 
-    .popup {
-        display: none;
-        position:absolute;
-        position: fixed; 
-        top: 50%; 
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 40%;
-        height: 40%;
-        border: 1px solid #ccc;
-        background-color:#f9f5f9;
-      }
-
     // remove blank sidebars on small screens
     @media screen and (max-width: 768px) {
         #content-wrap {
@@ -361,4 +348,31 @@ $red-dark-color: #cc4836;
         bottom: 0;
         width: 17%;
     }
+}
+
+#page-container.blured {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.popup {
+    position: fixed; 
+    top: 40%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    border: 1px solid #ccc;
+    background-color:#f9f5f9;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.popup.active {
+    top: 50%; 
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
 }
