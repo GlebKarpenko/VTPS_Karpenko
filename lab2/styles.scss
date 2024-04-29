@@ -173,7 +173,7 @@ $red-dark-color: #cc4836;
             .teachers-display {
                 margin-top: 30px;
                 display: grid;
-                grid-template-columns: repeat(10, 1fr);
+                grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
                 gap: 30px;
             }
 
@@ -231,39 +231,6 @@ $red-dark-color: #cc4836;
                 .region {
                     padding-top: 5px;
                     font-size: x-small;
-                }
-            }
-
-            // changing number of grid columns based on screen width
-
-            @media screen and (max-width: 2000px){
-                .teachers-display {
-                    grid-template-columns: repeat(6, 1fr);
-                }
-            }
-
-            @media screen and (max-width: 1686px){
-                .teachers-display {
-                    grid-template-columns: repeat(5, 1fr);
-                }
-            }
-
-            @media screen and (max-width: 1268px){
-                .teachers-display {
-                    grid-template-columns: repeat(4, 1fr);
-                }
-            }
-
-            @media screen and (max-width: 1024px){
-                .teachers-display {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-            }
-
-            // increase number of grids again after blank sidebars are removed
-            @media screen and (max-width: 768px){
-                .teachers-display {
-                    grid-template-columns: repeat(3, 1fr);
                 }
             }
 
