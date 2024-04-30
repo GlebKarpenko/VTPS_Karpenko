@@ -1,0 +1,35 @@
+.popup {
+    @include popupInactive();
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 10px #9999a6;
+    background-color: white;
+}
+
+.window-panel {
+    display: inline-flex;
+    width: 100%;
+    height: 40px;
+    background-color: $grey-header-color;
+    color: white;
+
+    .window-title {
+        @include main-font-style();
+        font-size: medium;
+        align-self: center;
+        margin-left: 10px;
+    }
+
+    button {
+        margin-left: auto;
+        margin-right: 5px;
+        background-color: $grey-header-color;
+        border: none;
+        cursor: pointer;
+        width: 30px;
+
+        i {
+            color: white;
+            font-size:medium
+        }
+    }
+}
