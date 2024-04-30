@@ -1,0 +1,82 @@
+@import "popup.scss";
+
+#teacher-info {
+    max-width: 600px;
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+
+        .pfp-container {
+            flex: 1;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .main-info {
+            @include thin-font-style();
+            flex: 2;
+            margin-left: 30px;
+            display: block;
+
+            span {
+                display:inline-block;
+            }
+
+            #card-name {
+                font-size: 22px;
+                margin-bottom: 15px;
+                font-weight: 500;
+            }
+
+            #card-field {
+                font-weight: 500;
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            #card-region, #card-age-gender, #card-email, #card-phone {
+                font-size: 11px;
+                color: $grey-header-color;
+                margin-bottom: 5px;
+            }
+
+            #card-email {
+                color: $link-primary-color;
+            }
+
+            #card-email:hover {
+                color: $link-activated-color;
+                cursor: pointer;
+            }
+        }
+
+        #card-comment {
+            font-family:Arial, Helvetica, sans-serif;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-weight: 200;
+            flex-basis: 100%;
+            font-size: 11px;
+            color: $grey-header-color;
+        }
+
+        a {
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            text-decoration: underline dashed;
+            color: $link-primary-color;
+        }
+
+        a:hover {
+            color: $link-activated-color;
+        }
+    }
+}
+
+#teacher-info.active {
+    @include popupActive();
+}

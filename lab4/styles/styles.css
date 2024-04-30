@@ -1,0 +1,537 @@
+#page-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#page-container #content-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 66%;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+#page-container.blured {
+  filter: blur(3px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.break-line {
+  width: 25vw;
+  margin-bottom: 30px;
+  border-bottom: 1px solid black;
+}
+
+.section-heading {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+}
+
+#blank-sidebar {
+  position: absolute;
+  bottom: 0;
+  width: 17%;
+}
+
+header, .navigation-list, main, footer, nav {
+  align-items: center;
+  width: 84%;
+}
+
+header, .navigation-list {
+  margin-top: 20px;
+  display: flex;
+}
+
+footer {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-weight: 300;
+  font-size: small;
+  margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
+  #content-wrap {
+    width: 100%;
+  }
+}
+header {
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+header .logo-wrap {
+  width: min-content;
+}
+header .logo-wrap img {
+  min-width: 200px;
+  width: 10vw;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+header #search-bar {
+  margin-left: auto;
+}
+header #search-bar input, header #search-bar button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: small;
+}
+header #search-bar input {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 180px;
+  margin-right: 12px;
+  transition: all 0.5s ease;
+}
+header #search-bar input:hover {
+  width: 20vw;
+  transition: all 0.5s ease;
+}
+header #search-bar button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #f75c49;
+  background-color: white;
+  border: 1px solid #f75c49;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all 0.5s ease;
+}
+header #search-bar button:hover {
+  color: white;
+  background-color: #f75c49;
+}
+
+.navigation-list {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.navigation-list .navigation-link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-right: 2vw;
+  color: #f75c49;
+  text-decoration: none;
+}
+.navigation-list .navigation-link:hover {
+  color: #cc4836;
+  transition: all 0.2s ease;
+}
+.navigation-list button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: auto;
+  padding: 5px 12.5px;
+  font-size: 16px;
+  color: #f75c49;
+  background-color: white;
+  border: 1px solid #f75c49;
+  transition: all 0.5s ease;
+}
+.navigation-list button:hover {
+  color: white;
+  background-color: #f75c49;
+}
+
+#filter {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: smaller;
+  color: #9999a6;
+}
+#filter select {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#filter .check-label:hover {
+  color: black;
+  transition: all 0.3s ease;
+}
+#filter .vertical-line {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-right: 1px dashed #9999a6;
+  margin-left: 0.5vw;
+  margin-right: 1vw;
+}
+
+.teachers-display {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 30px;
+}
+
+.grid-item {
+  display: block;
+}
+.grid-item .image-wrapper {
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #f99589;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  transition: all 0.5s ease;
+  margin-bottom: 15px;
+}
+.grid-item .image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+.grid-item .image-wrapper:hover {
+  border: 3px solid #cc4836;
+}
+.grid-item .image-wrapper:hover img {
+  transform: scale(1.2);
+}
+.grid-item span {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.grid-item .first-name, .grid-item .last-name {
+  font-weight: 500;
+}
+.grid-item .field {
+  padding-top: 10px;
+  font-size: 12px;
+  color: #9999a6;
+}
+.grid-item .region {
+  padding-top: 5px;
+  font-size: x-small;
+}
+
+#statistics-wrapper table {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+}
+#statistics-wrapper table th {
+  border-bottom: 1px solid;
+  padding: 10px;
+  font-weight: 300;
+}
+#statistics-wrapper table th:first-child {
+  text-align: left;
+}
+#statistics-wrapper table tr:nth-child(even) {
+  background-color: #f9f5f9;
+}
+#statistics-wrapper table td {
+  font-weight: 300;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+#statistics-wrapper table td:first-child {
+  text-align: left;
+}
+#statistics-wrapper .pagination {
+  margin-top: 20px;
+}
+#statistics-wrapper .pagination button {
+  margin: 4px;
+  color: #1a9cb0;
+  background-color: transparent;
+  border: none;
+}
+#statistics-wrapper .pagination button:focus {
+  color: #2261a9;
+}
+
+.slider-wrapper {
+  position: relative;
+  margin-bottom: 50px;
+}
+.slider-wrapper button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.slider-wrapper button i {
+  transform: scaleY(3);
+}
+.slider-wrapper #slide-left {
+  left: -40px;
+}
+.slider-wrapper #slide-right {
+  right: -40px;
+}
+.slider-wrapper #item-slider {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin: 0 10px;
+  margin-top: 15px;
+  overflow-x: hidden;
+}
+.slider-wrapper #item-slider .grid-item {
+  margin-left: 3vw;
+}
+
+.popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  border: 1px solid #ccc;
+  box-shadow: 4px 4px 10px #9999a6;
+  background-color: white;
+}
+
+.window-panel {
+  display: inline-flex;
+  width: 100%;
+  height: 40px;
+  background-color: #464547;
+  color: white;
+}
+.window-panel .window-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: medium;
+  align-self: center;
+  margin-left: 10px;
+}
+.window-panel button {
+  margin-left: auto;
+  margin-right: 5px;
+  background-color: #464547;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+}
+.window-panel button i {
+  color: white;
+  font-size: medium;
+}
+
+#add-teacher {
+  width: 450px;
+  height: 700px;
+}
+#add-teacher .content {
+  padding: 20px;
+}
+#add-teacher .content label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: small;
+  color: #464547;
+  margin-bottom: 3px;
+}
+#add-teacher .content input, #add-teacher .content select {
+  padding: 5px;
+}
+#add-teacher .content .form-row {
+  box-sizing: border-box;
+  display: flex;
+  padding: 8px;
+}
+#add-teacher .content .form-row .form-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+#add-teacher .content .form-row .form-cell input {
+  width: 100%;
+}
+#add-teacher .content .form-row .form-cell input[type=checkbox] {
+  padding: 0px;
+  width: 15px;
+}
+#add-teacher .content .form-row .form-cell .form-cell:last-child {
+  margin-right: 0;
+}
+#add-teacher .content .form-row .form-cell input {
+  box-sizing: border-box;
+}
+#add-teacher .content .form-row .form-cell .checkboxes {
+  flex-direction: row;
+}
+#add-teacher .content .form-row .form-cell .checkboxes #check-label {
+  margin-right: 20px;
+}
+#add-teacher .content .form-row .form-cell .checkboxes input {
+  border-radius: 50%;
+}
+#add-teacher .content .form-row .form-cell .color-selector {
+  flex-direction: row;
+}
+#add-teacher .content .form-row .form-cell #select-color {
+  width: 50px;
+}
+#add-teacher .content .form-row .form-cell input[type=submit] {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  padding: 10px;
+  color: #f75c49;
+  background-color: white;
+  border: 1px solid #f75c49;
+  transition: all 0.5s ease;
+}
+#add-teacher .content .form-row .form-cell input[type=submit]:hover {
+  color: white;
+  background-color: #f75c49;
+}
+
+#add-teacher.active {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  border: 1px solid #ccc;
+  box-shadow: 4px 4px 10px #9999a6;
+  background-color: white;
+}
+
+.window-panel {
+  display: inline-flex;
+  width: 100%;
+  height: 40px;
+  background-color: #464547;
+  color: white;
+}
+.window-panel .window-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: medium;
+  align-self: center;
+  margin-left: 10px;
+}
+.window-panel button {
+  margin-left: auto;
+  margin-right: 5px;
+  background-color: #464547;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+}
+.window-panel button i {
+  color: white;
+  font-size: medium;
+}
+
+#teacher-info {
+  max-width: 600px;
+}
+#teacher-info .content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+#teacher-info .content .pfp-container {
+  flex: 1;
+}
+#teacher-info .content .pfp-container img {
+  width: 100%;
+}
+#teacher-info .content .main-info {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  flex: 2;
+  margin-left: 30px;
+  display: block;
+}
+#teacher-info .content .main-info span {
+  display: inline-block;
+}
+#teacher-info .content .main-info #card-name {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+#teacher-info .content .main-info #card-field {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+#teacher-info .content .main-info #card-region, #teacher-info .content .main-info #card-age-gender, #teacher-info .content .main-info #card-email, #teacher-info .content .main-info #card-phone {
+  font-size: 11px;
+  color: #464547;
+  margin-bottom: 5px;
+}
+#teacher-info .content .main-info #card-email {
+  color: #1a9cb0;
+}
+#teacher-info .content .main-info #card-email:hover {
+  color: #2261a9;
+  cursor: pointer;
+}
+#teacher-info .content #card-comment {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: 200;
+  flex-basis: 100%;
+  font-size: 11px;
+  color: #464547;
+}
+#teacher-info .content a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: underline dashed;
+  color: #1a9cb0;
+}
+#teacher-info .content a:hover {
+  color: #2261a9;
+}
+
+#teacher-info.active {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/*# sourceMappingURL=styles.css.map */
