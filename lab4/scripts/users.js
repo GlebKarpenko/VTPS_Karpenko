@@ -8,7 +8,6 @@ export async function getMockUserData() {
         console.error("Error reading mock user data: ", error);
     }
 
-    console.log("Mock data: ", mockData);
     return mockData;
 }
 
@@ -33,19 +32,41 @@ export function formatUserData(objects = []) {
     objects.forEach(object => {
         id++;
         object.id = id;
-        object.favourite = new Boolean(false);
         const randomIndex = Math.floor(Math.random() * courses.length);
         object.course = courses[randomIndex];
+        object.full_name ??= `${object.name.first} ${object.name.last}`;
+        object.gender ??= "None";
+        object.gender = converGenderToStandart(object.gender);     
+        object.note ??= `This is ${object.course} teacher.`;
+        object.state ??= object.location.state;
+        object.city ??= object.location.city;
+        object.country ??= object.location.country;
+        object.favourite = new Boolean(false);
         object.bg_color = "#f9f5f9";
     });
 
     return objects;
 }
 
+function converGenderToStandart(gender) {
+    const male = "Male";
+    const female = "Female";
+    const maleRegex = /^(m|male)$/i;
+    const femaleRegex = /^(f|female)$/i;
+
+    if (maleRegex.test(gender)) {
+        return male;
+    }
+    if (femaleRegex.test(gender)) {
+        return female
+    }
+    return "None";
+}
+
 export function userIsValid(user) {
     const requiredFields = ["full_name", "gender", "note", "state", "city", "country"];
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    const phoneRegex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g;
 
     for (let field of requiredFields) {
         if (typeof user[field] !== 'string' || 
@@ -54,7 +75,7 @@ export function userIsValid(user) {
         }
     }
 
-    if (typeof user.age !== "number") {
+    if (typeof user.dob.age !== "number") {
         return false;
     }
 

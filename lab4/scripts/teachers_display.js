@@ -1,6 +1,5 @@
-import { addRequiredFields, getMockUserData } from "./users.js";
-import { formatUserData } from "./users.js";
-import { userIsValid } from "./users.js";
+import { addRequiredFields, formatUserData, userIsValid } from "./users.js";
+import { randomUserMock } from "../assets/config/mock_users.js";
 
 export class TeacherDisplay {
     display;
@@ -12,22 +11,18 @@ export class TeacherDisplay {
     }
 
     async setWithMockData() {
-        let mockUserData = await getMockUserData();
-        mockUserData = Object.values(mockUserData);
-        mockUserData = formatUserData(mockUserData);
-        
-        /*
         let validData = [];
+        let mockUsers = addRequiredFields(randomUserMock);
+        mockUsers = formatUserData(randomUserMock);
         
-        mockUserData.forEach(mockUser => {
+        mockUsers.forEach(mockUser => {
             console.log("User is valid: ", userIsValid(mockUser));
             if (userIsValid(mockUser)){
                 validData.push(mockUser);
-            } 
+            }
         });
-        */
 
-        this.teachers = mockUserData;
+        this.teachers = validData;
         console.log("Teachers: ", this.teachers);
     }
 }
