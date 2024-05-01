@@ -98,3 +98,20 @@ export function userIsValid(user) {
     }
     return false;
 }
+
+export function findFirst(users, searchBy){
+    const validFields = ["name", "note", "age"];
+    const fieldToSearch = Object.keys(searchBy)[0];
+
+    if (!validFields.includes(fieldToSearch)) {
+        return {};
+    }
+
+    const result = users.find((user) => user.fieldToSearch === searchBy.fieldToSearch);
+
+    if (result === undefined){
+        return {};
+    }
+
+    return result;
+}
