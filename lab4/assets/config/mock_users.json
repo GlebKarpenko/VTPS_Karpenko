@@ -1,0 +1,137 @@
+{
+    "randomUserMock": {
+        "gender": "Male",
+        "title": "Mr",
+        "full_name": "Norbert Weishaupt",
+        "city": "Rhön-Grabfeld",
+        "state": "Mecklenburg-Vorpommern",
+        "country": "Germany",
+        "postcode": 52640,
+        "coordinates": { "latitude": "-42.1817", "longitude": "-152.1685" },
+        "timezone": { "offset": "+9:30", "description": "Adelaide, Darwin" },
+        "email": "norbert.weishaupt@example.com",
+        "b_date": "1956-12-23T19:09:19.602Z",
+        "age": 65,
+        "phone": "0079-8291509",
+        "picture_large": "https://randomuser.me/api/portraits/men/28.jpg",
+        "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/28.jpg"
+    },
+    
+    "additionalUsers": {
+        "gender": "Male",
+        "title": "Mr",
+        "full_name": "Norbert Weishaupt",
+        "city": "Rhön-Grabfeld",
+        "state": "Mecklenburg-Vorpommern",
+        "country": "Germany",
+        "postcode": 52640,
+        "coordinates": { "latitude": "-42.1817", "longitude": "-152.1685" },
+        "timezone": { "offset": "+9:30", "description": "Adelaide, Darwin" },
+        "email": "norbert.weishaupt@example.com",
+        "b_date": "1956-12-23T19:09:19.602Z",
+        "age": 65,
+        "phone": "0079-8291509",
+        "picture_large": "https://randomuser.me/api/portraits/men/28.jpg",
+        "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/28.jpg",
+        "education": "Ph.D. in Computer Science",
+        "hobbies": ["Reading", "Photography", "Hiking"]
+    },
+    
+    "randomUserMock2": {
+        "gender": "Male",
+        "full_name": "Richard Roussel",
+        "city": "Mettmenstetten",
+        "state": "Aargau",
+        "country": "Switzerland",
+        "postcode": 3918,
+        "coordinates": {
+        "latitude": "-63.6075",
+        "longitude": "-97.4008"
+        },
+        "timezone": {
+        "offset": "-7:00",
+        "description": "Mountain Time (US & Canada)"
+        },
+        "email": "richard.roussel@example.com",
+        "login": {
+        "uuid": "de3be804-d0e7-44a3-b815-b93b53bc4579",
+        "username": "beautifulgoose727",
+        "password": "lalakers",
+        "salt": "Zd3BpQn8",
+        "md5": "bb751a56fc1b0f14e2aeb51cccb1e88b",
+        "sha1": "cdd562fea4c1e78098410bc6c1c74c639c944ddf",
+        "sha256": "122ecd01d4e73f6f383772468f716a095962a1dea2ecc1609976c2065b270592"
+        },
+        "dob": "1979-09-11T22:33:39.696Z",
+        "age": 44,
+        "registered": {
+        "date": "2006-10-15T19:42:25.460Z",
+        "age": 17
+        },
+        "phone": "075 772 34 61",
+        "cell": "075 637 97 85",
+        "id": {
+        "name": "AVS",
+        "value": "756.9716.2620.37"
+        },
+        "picture": {
+        "large": "https://randomuser.me/api/portraits/men/70.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/70.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/70.jpg"
+        },
+        "nat": "CH"
+    },
+
+    "randomUserMock3": {
+        "gender": "Female",
+        "full_name": "Buse Menemencioğlu",
+        "location": {
+        "street": {
+        "number": 7464,
+        "name": "Doktorlar Cd"
+        },
+        "city": "Diyarbakır",
+        "state": "Aksaray",
+        "country": "Turkey",
+        "postcode": 49090,
+        "coordinates": {
+        "latitude": "68.0390",
+        "longitude": "173.5023"
+        },
+        "timezone": {
+        "offset": "+5:45",
+        "description": "Kathmandu"
+        }
+        },
+        "email": "buse.menemencioglu@example.com",
+        "login": {
+        "uuid": "197bb24d-6b45-44fd-94a1-47b89146def9",
+        "username": "beautifulfish506",
+        "password": "niang",
+        "salt": "Uruq01wp",
+        "md5": "0410e283b81cb9d9f952f8cfab38c0e0",
+        "sha1": "5076a93705811c6090ad55b73a261112f86c8b81",
+        "sha256": "10f5626c4dee8663eb7e82a4d8ed4632e627c5ba309e2c82502301808512c11a"
+        },
+        "dob": {
+        "date": "1986-05-09T16:17:05.334Z",
+        "age": 37
+        },
+        "registered": {
+        "date": "2013-06-29T11:40:35.572Z",
+        "age": 10
+        },
+        "phone": "(024)-899-5448",
+        "cell": "(796)-085-9096",
+        "id": {
+        "name": "",
+        "value": null
+        },
+        "picture": {
+        "large": "https://randomuser.me/api/portraits/women/60.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/60.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/60.jpg"
+        },
+        "nat": "TR"
+    }
+}

@@ -1,7 +1,9 @@
-// Task 3
+import { TeacherDisplay } from "./teachers_display.js";
+
 const leftButton = document.getElementById("slide-left");
 const rightButton = document.getElementById("slide-right");
 const itemSlider = document.getElementById("item-slider");
+
 let addTeacherControllers = document.querySelectorAll(".add-teacher-controller");
 let teacherInfoControllers = document.querySelectorAll(".teacher-info-controller");
 let imageWrappers = document.querySelectorAll(".imageWrapper");
@@ -54,3 +56,6 @@ function changeLogo(imgSrc) {
         logo.style.opacity = '1';
     }, 300);
 }
+
+const teacherDisplay = new TeacherDisplay(document.getElementById("top-teachers"));
+teacherDisplay.setWithMockData();
