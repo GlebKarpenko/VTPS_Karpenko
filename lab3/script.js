@@ -96,6 +96,7 @@ function userIsValid(user) {
         }
 
         return true;
+
     } catch (error) {
         console.log(`User with id: ${user.id} is not valid! `, error);
     }
@@ -103,7 +104,8 @@ function userIsValid(user) {
 }
 
 console.log("\nTask2");
-console.log(`User with name ${mockObjects[6].full_name} is valid: ${userIsValid(mockObjects)}`);
+const userToValidate = mockObjects[12];
+console.log(`User with name ${userToValidate.full_name} is valid: ${userIsValid(userToValidate)}`);
 
 //
 //----------------Task 3----------------
