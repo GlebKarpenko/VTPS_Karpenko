@@ -59,3 +59,4 @@ function changeLogo(imgSrc) {
 
 const teacherDisplay = new TeacherDisplay(document.getElementById("top-teachers"));
 teacherDisplay.setWithMockData();
+teacherDisplay.generateHTML();
