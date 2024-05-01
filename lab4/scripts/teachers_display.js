@@ -14,9 +14,10 @@ export class TeacherDisplay {
         let validData = [];
         let mockUsers = addRequiredFields(randomUserMock);
         mockUsers = formatUserData(randomUserMock);
+
+        console.log("Mock teachers: ", mockUsers);
         
         mockUsers.forEach(mockUser => {
-            console.log("User is valid: ", userIsValid(mockUser));
             if (userIsValid(mockUser)){
                 validData.push(mockUser);
             }

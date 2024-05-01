@@ -12,7 +12,7 @@ export async function getMockUserData() {
 }
 
 export function addRequiredFields(objectArray) {
-    const requiredFields = ["full_name", "gender", "note", "state", "city", "country"];
+    const requiredFields = ["full_name", "gender", "note", "state", "city", "country", "favorite"];
 
     for (const obj of objectArray) {
         for (const field of requiredFields) {
@@ -30,19 +30,23 @@ export function formatUserData(objects = []) {
     let id = 0;
     
     objects.forEach(object => {
-        id++;
-        object.id = id;
-        const randomIndex = Math.floor(Math.random() * courses.length);
-        object.course = courses[randomIndex];
-        object.full_name ??= `${object.name.first} ${object.name.last}`;
-        object.gender ??= "None";
-        object.gender = converGenderToStandart(object.gender);     
-        object.note ??= `This is ${object.course} teacher.`;
-        object.state ??= object.location.state;
-        object.city ??= object.location.city;
-        object.country ??= object.location.country;
-        object.favourite = new Boolean(false);
-        object.bg_color = "#f9f5f9";
+        try {
+            id++;
+            object.id = id;
+            const randomIndex = Math.floor(Math.random() * courses.length);
+            object.course = courses[randomIndex];
+            object.full_name ??= `${object.name.first} ${object.name.last}`;
+            object.gender ??= "None";
+            object.gender = converGenderToStandart(object.gender);     
+            object.note ??= `This is ${object.course} teacher.`;
+            object.state ??= object.location.state;
+            object.city ??= object.location.city;
+            object.country ??= object.location.country;
+            object.favorite ??= new Boolean(false);
+            object.bg_color = "#f9f5f9";
+        } catch(error) {
+            console.error("Could not format this user! Not enough data.", error);
+        }
     });
 
     return objects;
@@ -68,23 +72,29 @@ export function userIsValid(user) {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g;
 
-    for (let field of requiredFields) {
-        if (typeof user[field] !== 'string' || 
-        user[field].charAt(0) !== user[field].charAt(0).toUpperCase()) {
+    try {
+        for (let field of requiredFields) {
+            if (typeof user[field] !== 'string'  
+            || user[field].charAt(0) !== user[field].charAt(0).toUpperCase()) {
+                return false;
+            }
+        }
+    
+        if (typeof user.dob.age !== "number") {
             return false;
         }
-    }
+    
+        if (!phoneRegex.test(user.phone)){
+            return false
+        }
+    
+        if (!emailRegex.test(user.email)) {
+            return false;
+        }
 
-    if (typeof user.dob.age !== "number") {
-        return false;
+        return true;
+    } catch (error) {
+        console.error(`User with id: ${user.id} is not valid! `, error);
     }
-
-    if (!phoneRegex.test(user.phone)){
-        return false
-    }
-
-    if (!emailRegex.test(user.email)) {
-        return false;
-    }
-    return true
+    return false;
 }
