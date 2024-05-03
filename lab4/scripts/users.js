@@ -119,6 +119,12 @@ export function findFirst(users, searchBy){
 export function filterUsers(users, filterFields) {
     return users.filter(user => {
         for (let field in filterFields) {
+            if (field === 'dob' 
+                && user["dob"]["age"] >= filterFields["dob"]["age"]["min"]
+                && user["dob"]["age"] < filterFields["dob"]["age"]["max"]) {
+                    return true;
+            }
+
             if (user[field] !== filterFields[field]) {
                 return false
             }

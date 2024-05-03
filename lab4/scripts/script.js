@@ -117,7 +117,13 @@ function handleFilterChange(event) {
     const filterFields = {};
 
     if (selectedAge !== 'all') {
-        filterFields["dob"]["age"] = selectedAge; 
+        const ageRange = selectedAge.split("-");
+        filterFields["dob"] = {
+            "age": {
+                "min": parseInt(ageRange[0]),
+                "max": parseInt(ageRange[1])
+            }
+        };
     }
 
     if (selectedRegion !== 'all') {
@@ -135,6 +141,8 @@ function handleFilterChange(event) {
     if (onlyFavourites) {
         filterFields["favorite"] = new Boolean(true);
     }
+
+    console.log(filterFields);
 
     if (Object.keys(filterFields).length > 0) {
         topTeachers.filter(filterFields);
