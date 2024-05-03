@@ -1,4 +1,4 @@
-import { addRequiredFields, formatUserData, userIsValid } from "./users.js";
+import { addRequiredFields, formatUserData, userIsValid, findFirst } from "./users.js";
 import { randomUserMock } from "../assets/config/mock_users.js";
 
 export class TeacherDisplay {
@@ -25,47 +25,54 @@ export class TeacherDisplay {
     }
 
     generateHTML(){
+        let template = ``;
+
         this.teachers.forEach(teacher => {
-            const firstName = teacher.full_name.split(' ').slice(0, -1).join(' ');
-            const lastName = teacher.full_name.split(' ').slice(-1).join(' ');
-            
-            let pfp = teacher.picture.large ?? 
-                teacher.picture.medium  ?? 
-                teacher.picture.thumbnail ?? 
-                "assets/aboutus.jpg";
-
-            const gridItem = new GridItem(
-                firstName, 
-                lastName, 
-                teacher.course,
-                teacher.country,
-                pfp
-            );
-
-            this.displayElement.innerHTML += gridItem.generateHTML();
+            const gridItem = new GridItem(teacher);
+            template += gridItem.generateHTML();
         });
+
+        this.displayElement.innerHTML = template;
+    }
+
+    removeTeacher(index) {
+        this.teachers.splice(index, 1);
+        this.generateHTML();
+    }
+
+    addTeacher(teacher){
+        this.teachers.push(teacher);
+        this.generateHTML();
     }
 }
 
 class GridItem {
-    constructor (firstName, lastName, field, region, imageSrc) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.field = field;
-        this.region = region;
-        this.imageSrc = imageSrc;
+    constructor (teacher) {
+        this.teacher = teacher;
+        this.id = `teacher-card-${teacher.id}`;
     }
 
     generateHTML() {
+        const firstName = this.teacher.full_name.split(' ').slice(0, -1).join(' ');
+        const lastName = this.teacher.full_name.split(' ').slice(-1).join(' ');
+        
+        let imageSrc = this.teacher.picture.large ?? 
+            this.teacher.picture.medium  ?? 
+            this.teacher.picture.thumbnail ?? 
+            "assets/aboutus.jpg";
+
+        const field = this.teacher.course;
+        const region = this.teacher.country;
+
         return `                        
         <div class="grid-item">
             <div class="image-wrapper">
-                <img src="${this.imageSrc}" class="teacher-info-controller" alt="Avatar">
+                <img src="${imageSrc}" id="${this.id}" alt="Avatar">
             </div>
-            <span class="first-name">${this.firstName}</span>
-            <span class="last-name">${this.lastName}</span>
-            <span class="field">${this.field}</span>
-            <span class="region">${this.region}</span>
+            <span class="first-name">${firstName}</span>
+            <span class="last-name">${lastName}</span>
+            <span class="field">${field}</span>
+            <span class="region">${region}</span>
         </div>`;
     }
 }
