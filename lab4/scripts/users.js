@@ -115,3 +115,14 @@ export function findFirst(users, searchBy){
 
     return result;
 }
+
+export function filterUsers(users, filterFields) {
+    return users.filter(user => {
+        for (let field in filterFields) {
+            if (user[field] !== filterFields[field]) {
+                return false
+            }
+        }
+        return true;
+    })
+}

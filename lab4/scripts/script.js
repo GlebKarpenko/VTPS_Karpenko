@@ -1,5 +1,6 @@
 import { TeacherDisplay } from "./teachers_display.js";
 import { TeacherInfo} from "./teacher_info.js";
+import { filterUsers } from "./users.js";
 
 const leftButton = document.getElementById("slide-left");
 const rightButton = document.getElementById("slide-right");
@@ -33,12 +34,13 @@ function changeLogo(imgSrc) {
     }, 300);
 }
 
+// Top teachers and favorites
 const topTeachers = new TeacherDisplay(document.getElementById("top-teachers"));
 topTeachers.setWithMockData();
-topTeachers.generateHTML();
+topTeachers.generateHTML(topTeachers.teachers);
 
 const favoriteTeachers = new TeacherDisplay(document.getElementById("item-slider"));
-favoriteTeachers.generateHTML();
+favoriteTeachers.generateHTML(favoriteTeachers.teachers);
 
 addTeacherInfoListeners();
 
@@ -98,9 +100,54 @@ teacherInfoControllers.forEach((item) => {
     item.addEventListener('click', () => togglePopup('teacher-info'));
 });
 
+// Filter selectors
+const ageSelector = document.getElementById("age-selector");
+const regionSelector = document.getElementById("region-selector");
+const sexSelector = document.getElementById("sex-selector");
+const photoCheck = document.getElementById("photo-check");
+const favouritesCheck = document.getElementById("favourites-check");
 
+function handleFilterChange(event) {
+    const selectedAge =  ageSelector.value;
+    const selectedRegion = regionSelector.value;
+    const selectedSex = sexSelector.value;
+    const hasPhoto = photoCheck.checked;
+    const onlyFavourites = favouritesCheck.checked;
 
+    const filterFields = {};
 
+    if (selectedAge !== 'all') {
+        filterFields["dob"]["age"] = selectedAge; 
+    }
+
+    if (selectedRegion !== 'all') {
+        filterFields["country"] = selectedRegion; 
+    }
+
+    if (selectedSex !== 'all') {
+        filterFields["gender"] = selectedSex; 
+    }
+
+    if (hasPhoto) {
+        filterFields["picture"];
+    }
+
+    if (onlyFavourites) {
+        filterFields["favorite"] = new Boolean(true);
+    }
+
+    if (Object.keys(filterFields).length > 0) {
+        topTeachers.filter(filterFields);
+    }
+}
+
+ageSelector.addEventListener("change", handleFilterChange);
+regionSelector.addEventListener("change", handleFilterChange);
+sexSelector.addEventListener("change", handleFilterChange);
+photoCheck.addEventListener("change", handleFilterChange);
+favouritesCheck.addEventListener("change", handleFilterChange);
+
+// Add teacher popup
 let addTeacherControllers = document.querySelectorAll(".add-teacher-controller");
 
 addTeacherControllers.forEach((item) => {

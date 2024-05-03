@@ -1,4 +1,4 @@
-import { addRequiredFields, formatUserData, userIsValid, findFirst } from "./users.js";
+import { addRequiredFields, formatUserData, userIsValid, findFirst, filterUsers } from "./users.js";
 import { randomUserMock } from "../assets/config/mock_users.js";
 
 export class TeacherDisplay {
@@ -43,6 +43,12 @@ export class TeacherDisplay {
     addTeacher(teacher){
         this.teachers.push(teacher);
         this.generateHTML();
+    }
+
+    filter(filterFields) {
+        this.teachers = filterUsers(this.teachers, filterFields);
+        this.generateHTML();
+        this.setWithMockData();
     }
 }
 
