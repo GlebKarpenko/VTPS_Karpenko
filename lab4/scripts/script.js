@@ -147,6 +147,9 @@ function handleFilterChange(event) {
     if (Object.keys(filterFields).length > 0) {
         topTeachers.filter(filterFields);
     }
+
+    topTeachers.generateHTML();
+    topTeachers.setWithMockData();
 }
 
 ageSelector.addEventListener("change", handleFilterChange);

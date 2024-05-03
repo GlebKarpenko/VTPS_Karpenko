@@ -47,8 +47,6 @@ export class TeacherDisplay {
 
     filter(filterFields) {
         this.teachers = filterUsers(this.teachers, filterFields);
-        this.generateHTML();
-        this.setWithMockData();
     }
 }
 
