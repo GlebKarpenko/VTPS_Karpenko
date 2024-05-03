@@ -119,20 +119,38 @@ export function findFirst(users, searchBy){
 export function filterUsers(users, filterFields) {
     return users.filter(user => {
         for (let field in filterFields) {
-            if (field === 'picture' && user['picture']) {
-                return true
-            }
-
-            if (field === 'dob' 
-                && user["dob"]["age"] >= filterFields["dob"]["age"]["min"]
-                && user["dob"]["age"] < filterFields["dob"]["age"]["max"]) {
-                    return true;
-            }
-
-            if (user[field] !== filterFields[field]) {
-                return false
+            if (!fieldIsFiltered(user, field, filterFields)) {
+                return false;
             }
         }
         return true;
     })
+}
+
+function fieldIsFiltered(user, field, filterFields) {
+    if (field === 'picture') {
+        if (user['picture']) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    if (field === 'dob') {
+        if (user["dob"]["age"] >= filterFields["dob"]["age"]["min"]
+        && user["dob"]["age"] <= filterFields["dob"]["age"]["max"]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    if (user[field] !== filterFields[field]) {
+        console.log("other");
+        return false
+    }
+
+    return true;
 }
