@@ -90,8 +90,8 @@ function toggleFavoriteStatus(teacher) {
     teacherInfo.generateHTML(teacher);
 }
 
-function togglePopup(){
-    document.getElementById("teacher-info").classList.toggle('active');
+function togglePopup(popupID){
+    document.getElementById(popupID).classList.toggle('active');
     document.getElementById('page-container').classList.toggle('blured');
 }
 
