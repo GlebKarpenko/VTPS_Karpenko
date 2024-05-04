@@ -66,11 +66,11 @@ function toggleTeacherInfo(teacher) {
         const addToFavorites = document.getElementById(`add-favorite-${teacher.id}`);
         addToFavorites.addEventListener('click', () => {
             toggleFavoriteStatus(teacher);
-            togglePopup();
+            togglePopup('teacher-info');
             addFavoritesListener();
         });
 
-        togglePopup();
+        togglePopup('teacher-info');
     });
 }
 
