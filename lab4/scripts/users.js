@@ -43,7 +43,7 @@ export function formatUserData(objects = []) {
             object.city ??= object.location.city;
             object.country ??= object.location.country;
             object.favorite ??= new Boolean(false);
-            object.bg_color = "#f9f5f9";
+            object.bg_color ??= "#f9f5f9";
         } catch(error) {
             console.error("Could not format this user! Not enough data.", error);
         }

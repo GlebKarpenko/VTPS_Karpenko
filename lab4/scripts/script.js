@@ -1,6 +1,6 @@
 import { TeacherDisplay } from "./teachers_display.js";
 import { TeacherInfo} from "./teacher_info.js";
-import { filterUsers } from "./users.js";
+import { filterUsers, formatUserData, userIsValid } from "./users.js";
 
 const leftButton = document.getElementById("slide-left");
 const rightButton = document.getElementById("slide-right");
@@ -151,12 +151,9 @@ addTeacherControllers.forEach((item) => {
     item.addEventListener('click', () => togglePopup('add-teacher'));
 });
 
-console.log("Mock user", topTeachers.teachers[5]);
-
 let addTeacherForm = document.getElementById("add-teacher-form");
 addTeacherForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("Form submited");
 
     let formData = {};
     const userFields = ["full_name", "course", "country", "city", "email", "phone", "dob", "gender", "bg_color", "note"];
@@ -171,8 +168,8 @@ addTeacherForm.addEventListener("submit", (e) => {
     }
 
     formData["age"] = calculateAge(formData.dob); 
-
-    console.log("Form data: ", formData);
+    addFormTeacher(formData);
+    togglePopup('add-teacher');
 });
 
 function getSelectedCheckboxValue(){
@@ -194,4 +191,16 @@ function calculateAge(dob) {
     let diff_ms = Date.now() - dobDate.getTime();
     let age_dt = new Date(diff_ms); 
     return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
+
+function addFormTeacher(formData) {
+    formData["state"] = "None";
+
+    if (!formData.hasOwnProperty("picture")) {
+        formData["picture"] = {};
+        formData["picture"]["large"] = "assets/aboutus.jpg";
+    }
+
+    formData = formatUserData([formData])[0];
+    topTeachers.addTeacher(formData);
 }
