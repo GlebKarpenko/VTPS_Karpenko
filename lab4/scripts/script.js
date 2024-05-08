@@ -224,4 +224,7 @@ function addFormTeacher(formData) {
 
     formData = formatUserData([formData])[0];
     topTeachers.addTeacher(formData);
+    topTeachers.generateHTML();
+    addTeacherInfoListeners();
+    addFavoritesListener();
 }
