@@ -33,6 +33,19 @@
 
                 <header>
                     <div class="logo-wrap">
+                        <script>
+                            let hoverTimer;
+                            function changeLogo(imgSrc) {
+                                clearTimeout(hoverTimer);
+                                let logo = document.getElementById('logo');
+                                logo.style.opacity = '0';
+
+                                hoverTimer = setTimeout(function() {
+                                    logo.src = imgSrc;
+                                    logo.style.opacity = '1';
+                                }, 300);
+                            }
+                        </script>
                         <img id="logo" alt="Teachinder logo" src="assets/logo.png" onmouseover="changeLogo('assets/logo_highlighted.png')" onmouseout="changeLogo('assets/logo.png')">
                     </div>
                     <div id="search-bar">

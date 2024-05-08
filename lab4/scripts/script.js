@@ -6,8 +6,6 @@ const leftButton = document.getElementById("slide-left");
 const rightButton = document.getElementById("slide-right");
 const itemSlider = document.getElementById("item-slider");
 
-let hoverTimer;
-
 leftButton.addEventListener('click', () => {
     itemSlider.scrollBy({
         left: -150,
@@ -21,18 +19,6 @@ rightButton.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
-
-// Change the src attribute to the hover image with timed delay and animation
-function changeLogo(imgSrc) {
-    clearTimeout(hoverTimer);
-    let logo = document.getElementById('logo');
-    logo.style.opacity = '0';
-
-    hoverTimer = setTimeout(function() {
-        logo.src = imgSrc;
-        logo.style.opacity = '1';
-    }, 300);
-}
 
 // Top teachers and favorites
 const topTeachers = new TeacherDisplay(document.getElementById("top-teachers"));
