@@ -133,6 +133,8 @@ function handleFilterChange(event) {
     }
 
     topTeachers.generateHTML();
+    addTeacherInfoListeners();
+    addFavoritesListener();
     topTeachers.setWithMockData();
 }
 
