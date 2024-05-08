@@ -150,3 +150,48 @@ let addTeacherControllers = document.querySelectorAll(".add-teacher-controller")
 addTeacherControllers.forEach((item) => {
     item.addEventListener('click', () => togglePopup('add-teacher'));
 });
+
+console.log("Mock user", topTeachers.teachers[5]);
+
+let addTeacherForm = document.getElementById("add-teacher-form");
+addTeacherForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("Form submited");
+
+    let formData = {};
+    const userFields = ["full_name", "course", "country", "city", "email", "phone", "dob", "gender", "bg_color", "note"];
+    const formFields = ["full-name", "speciality", "country", "city", "email", "phone", "dob", "sex", "select-color", "comment"];
+
+    for (let i = 0; i < userFields.length; i++) {
+        if (formFields[i] === "sex") {
+            formData[userFields[i]] = getSelectedCheckboxValue(); 
+        } else {
+            formData[userFields[i]] = document.getElementById(formFields[i]).value;
+        }
+    }
+
+    formData["age"] = calculateAge(formData.dob); 
+
+    console.log("Form data: ", formData);
+});
+
+function getSelectedCheckboxValue(){
+    const checkboxes = document.querySelectorAll('.sex-check');
+    let selectedValue = "None";
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            selectedValue = checkboxes[i].parentElement.textContent.trim()
+            break;
+        }
+    }
+
+    return selectedValue;
+}
+
+function calculateAge(dob) {
+    const dobDate = new Date(dob);
+    let diff_ms = Date.now() - dobDate.getTime();
+    let age_dt = new Date(diff_ms); 
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
