@@ -127,6 +127,23 @@ export function filterUsers(users, filterFields) {
     })
 }
 
+export function filterMatchingUsers(users, filterFields) {
+    return users.filter(user => {
+        for (let field in filterFields) {
+            if (filterFields[field] && !fieldIsMatching(user, field, filterFields)) {
+                return false;
+            }
+        }
+        return true;
+    })
+}
+
+function fieldIsMatching(user, field, filterFields) {
+    const userValue = String(user[field]).toLowerCase();
+    const filterValue = String(filterFields[field]).toLowerCase();
+    return userValue.includes(filterValue);
+}
+
 function fieldIsFiltered(user, field, filterFields) {
     if (field === 'picture') {
         if (user['picture']) {

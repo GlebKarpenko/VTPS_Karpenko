@@ -1,6 +1,6 @@
 import { TeacherDisplay } from "./teachers_display.js";
 import { TeacherInfo} from "./teacher_info.js";
-import { filterUsers, formatUserData, userIsValid } from "./users.js";
+import { formatUserData} from "./users.js";
 
 const leftButton = document.getElementById("slide-left");
 const rightButton = document.getElementById("slide-right");
@@ -143,6 +143,27 @@ regionSelector.addEventListener("change", handleFilterChange);
 sexSelector.addEventListener("change", handleFilterChange);
 photoCheck.addEventListener("change", handleFilterChange);
 favouritesCheck.addEventListener("change", handleFilterChange);
+
+function addSearchListener() {
+    const searchInput = document.getElementById("search-value");
+    const searchButton = document.getElementById("search-button");
+
+    searchButton.addEventListener("click", () => {
+        if (searchInput.value === ""){
+            return;
+        }
+
+        const searchResult = topTeachers.getMatching(searchInput.value);
+
+        topTeachers.teachers = searchResult;
+        topTeachers.generateHTML();
+        addTeacherInfoListeners();
+        addFavoritesListener();
+        topTeachers.setWithMockData();
+    });
+}
+
+addSearchListener();
 
 // Add teacher popup
 let addTeacherControllers = document.querySelectorAll(".add-teacher-controller");

@@ -1,4 +1,10 @@
-import { addRequiredFields, formatUserData, userIsValid, findFirst, filterUsers } from "./users.js";
+import { 
+    addRequiredFields, 
+    formatUserData, 
+    userIsValid, 
+    filterMatchingUsers, 
+    filterUsers 
+} from "./users.js";
 import { randomUserMock } from "../assets/config/mock_users.js";
 
 export class TeacherDisplay {
@@ -47,6 +53,25 @@ export class TeacherDisplay {
 
     filter(filterFields) {
         this.teachers = filterUsers(this.teachers, filterFields);
+    }
+
+    getMatching(searchedValue) {
+        const values = [
+            {"full_name": searchedValue},
+            {"age": searchedValue},
+            {"note": searchedValue}
+        ];
+
+        let searchedTeachers = [];
+
+        for (const value of values) {
+            const filteredByField = filterMatchingUsers(this.teachers, value);
+            if (filteredByField.length > 0) {
+                searchedTeachers = searchedTeachers.concat(filteredByField);
+            }
+        }
+
+        return searchedTeachers;
     }
 }
 
