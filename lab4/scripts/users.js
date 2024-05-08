@@ -148,7 +148,6 @@ function fieldIsFiltered(user, field, filterFields) {
     }
     
     if (user[field] !== filterFields[field]) {
-        console.log("other");
         return false
     }
 

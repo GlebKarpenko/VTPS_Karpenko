@@ -128,8 +128,6 @@ function handleFilterChange(event) {
         filterFields["favorite"] = new Boolean(true);
     }
 
-    console.log(filterFields);
-
     if (Object.keys(filterFields).length > 0) {
         topTeachers.filter(filterFields);
     }
