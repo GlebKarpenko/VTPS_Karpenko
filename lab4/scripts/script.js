@@ -173,9 +173,26 @@ teacherStatisticDisplay.setWithMockData();
 const statisticsData = teacherStatisticDisplay.teachers;
 
 const tableBodyElement = document.getElementById("statistics-body");
-let statistics = new StatisticsTable(tableElement, tableBodyElement, statisticsData);
+let statistics = new StatisticsTable(tableElement, tableBodyElement, statisticsData, 10);
 
-statistics.displayPage(1, 10);
+statistics.displayPage(1);
+
+// Sorting by header
+const headers = {
+    "name-header-cell": "full_name",
+    "speciality-header": "course",
+    "age-header": "age",
+    "gender-header": "gender",
+    "country-header": "country"
+}
+
+for (const key in headers) {
+    let sortOrder = 'desc';
+    document.getElementById(key).addEventListener('click', () => {
+        sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
+        statistics.sort(headers[key], sortOrder);
+    });
+}
 
 // Add teacher popup
 let addTeacherControllers = document.querySelectorAll(".add-teacher-controller");

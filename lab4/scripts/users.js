@@ -170,3 +170,34 @@ function fieldIsFiltered(user, field, filterFields) {
 
     return true;
 }
+
+export function sortUsers(users, sortBy, order="desc") {
+    const validFields = ["full_name", "course", "gender", "age", "b_day", "country"];
+
+    if (!validFields.includes(sortBy)) {
+        return users;
+    }
+
+    const sortOrder = order === "desc" ? -1 : 1;
+
+    users.sort((a, b) => {
+        switch (sortBy) {
+            case 'full_name':
+                return a.full_name.localeCompare(b.full_name) * sortOrder;
+            case 'course':
+                return a.course.localeCompare(b.course) * sortOrder;
+            case 'gender':
+                return a.gender.localeCompare(b.gender) * sortOrder;
+            case 'age':
+                return (a.dob.age - b.dob.age) * sortOrder;
+            case 'b_day': 
+                return (new Date(a.b_day) - new Date(b.b_day)) * sortOrder;
+            case 'country':
+                return a.country.localeCompare(b.country) * sortOrder;
+            default:
+                return a.full_name.localeCompare(b.full_name) * sortOrder;
+        }
+    });
+
+    return users;
+}
