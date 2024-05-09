@@ -1,5 +1,6 @@
 import { TeacherDisplay } from "./teachers_display.js";
 import { TeacherInfo} from "./teacher_info.js";
+import { StatisticsTable } from "./statistics_table.js";
 import { formatUserData} from "./users.js";
 
 const leftButton = document.getElementById("slide-left");
@@ -164,6 +165,17 @@ function addSearchListener() {
 }
 
 addSearchListener();
+
+// Statistics table
+const tableElement = document.getElementById("statistics");
+let teacherStatisticDisplay = new TeacherDisplay(tableElement);
+teacherStatisticDisplay.setWithMockData();
+const statisticsData = teacherStatisticDisplay.teachers;
+
+const tableBodyElement = document.getElementById("statistics-body");
+let statistics = new StatisticsTable(tableElement, tableBodyElement, statisticsData);
+
+statistics.displayPage(1, 10);
 
 // Add teacher popup
 let addTeacherControllers = document.querySelectorAll(".add-teacher-controller");
