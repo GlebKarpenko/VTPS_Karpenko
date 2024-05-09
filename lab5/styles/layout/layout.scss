@@ -1,0 +1,63 @@
+#page-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #content-wrap {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 66%;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+    }
+}
+
+#page-container.blured {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.break-line {
+    //width: 42%;
+    width: 25vw;
+    margin-bottom: 30px;
+    border-bottom: 1px solid black;
+}
+
+.section-heading {
+    @include main-font-style();
+    text-align: center;
+}
+
+#blank-sidebar {
+    position: absolute;
+    bottom: 0;
+    width: 17%;
+}
+
+header, .navigation-list, main, footer, nav {
+    align-items: center;
+    width: $content-element-width;
+}
+
+header, .navigation-list {
+    margin-top: $page-top-margin;
+    display: flex;  
+}
+
+footer {
+    @include main-font-style();
+    font-weight: 300;
+    font-size: small;
+    margin-top: auto;
+}
+
+// remove blank sidebars on small screens
+@media screen and (max-width: 768px) {
+    #content-wrap {
+        width: 100%;
+    }
+}

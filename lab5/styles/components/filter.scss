@@ -1,0 +1,23 @@
+#filter {
+    @include thin-font-style();
+    font-size: smaller;
+    color: $grey-text-color;
+
+    select {
+        padding-top: $input-field-padding;
+        padding-bottom: $input-field-padding;
+    }
+
+    .check-label:hover {
+        color: black;
+        transition: all 0.3s ease;
+    }
+
+    .vertical-line {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        border-right: 1px dashed $grey-text-color;
+        margin-left: 0.5vw;
+        margin-right: 1vw;
+    }
+}
