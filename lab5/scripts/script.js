@@ -139,6 +139,7 @@ function handleFilterChange(event) {
     topTeachers.generateHTML();
     addTeacherInfoListeners();
     addFavoritesListener();
+    statistics.displayPage(1, topTeachers.teachers);
     topTeachers.setWithData(randomUsersData);
 }
 
@@ -163,6 +164,7 @@ function addSearchListener() {
         topTeachers.generateHTML();
         addTeacherInfoListeners();
         addFavoritesListener();
+        statistics.displayPage(1, topTeachers.teachers);
         topTeachers.setWithData(randomUsersData);
     });
 }
@@ -176,9 +178,9 @@ teacherStatisticDisplay.setWithData(randomUsersData.slice(0, 10));
 const statisticsData = teacherStatisticDisplay.teachers;
 
 const tableBodyElement = document.getElementById("statistics-body");
-let statistics = new StatisticsTable(tableElement, tableBodyElement, statisticsData, 10);
+let statistics = new StatisticsTable(tableElement, tableBodyElement, 10);
 
-statistics.displayPage(1);
+statistics.displayPage(1, topTeachers.teachers);
 
 // Sorting by header
 const headers = {
@@ -193,7 +195,7 @@ for (const key in headers) {
     let sortOrder = 'desc';
     document.getElementById(key).addEventListener('click', () => {
         sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
-        statistics.sort(headers[key], sortOrder);
+        statistics.sort(headers[key], sortOrder, topTeachers.teachers);
     });
 }
 
@@ -259,4 +261,5 @@ function addFormTeacher(formData) {
     topTeachers.generateHTML();
     addTeacherInfoListeners();
     addFavoritesListener();
+    statistics.displayPage(1, topTeachers.teachers);
 }
