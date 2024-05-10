@@ -34,6 +34,15 @@ favoriteTeachers.generateHTML(favoriteTeachers.teachers);
 
 addTeacherInfoListeners();
 
+function handleTopTeachersDataChange() {
+    topTeachers.generateHTML();
+    addTeacherInfoListeners();
+    addFavoritesListener();
+    statistics.displayPage(1, topTeachers.teachers);
+    addStatisticsSorting(topTeachers.teachers);
+    topTeachers.setWithData(randomUsersData);
+}
+
 // Open teacher's info card on grid image click.
 function addTeacherInfoListeners() {
     topTeachers.teachers.forEach((teacher) => {
@@ -136,12 +145,7 @@ function handleFilterChange(event) {
         topTeachers.filter(filterFields);
     }
 
-    topTeachers.generateHTML();
-    addTeacherInfoListeners();
-    addFavoritesListener();
-    statistics.displayPage(1, topTeachers.teachers);
-    addStatisticsSorting(topTeachers.teachers);
-    topTeachers.setWithData(randomUsersData);
+    handleTopTeachersDataChange();
 }
 
 ageSelector.addEventListener("change", handleFilterChange);
@@ -161,13 +165,7 @@ function addSearchListener() {
 
         const searchResult = topTeachers.getMatching(searchInput.value);
 
-        topTeachers.teachers = searchResult;
-        topTeachers.generateHTML();
-        addTeacherInfoListeners();
-        addFavoritesListener();
-        statistics.displayPage(1, topTeachers.teachers);
-        addStatisticsSorting(topTeachers.teachers);
-        topTeachers.setWithData(randomUsersData);
+        handleTopTeachersDataChange();
     });
 }
 
@@ -182,7 +180,6 @@ const statisticsData = teacherStatisticDisplay.teachers;
 const tableBodyElement = document.getElementById("statistics-body");
 let statistics = new StatisticsTable(tableElement, tableBodyElement, 10);
 
-console.log('teachers: ', topTeachers.teachers);
 statistics.displayPage(1, topTeachers.teachers);
 addStatisticsSorting(topTeachers.teachers);
 
@@ -261,11 +258,5 @@ function addFormTeacher(formData) {
         formData["picture"]["large"] = "assets/aboutus.jpg";
     }
 
-    formData = formatUserData([formData])[0];
-    topTeachers.addTeacher(formData);
-    topTeachers.generateHTML();
-    addStatisticsSorting(topTeachers.teachers);
-    addTeacherInfoListeners();
-    addFavoritesListener();
-    statistics.displayPage(1, topTeachers.teachers);
+    handleTopTeachersDataChange();
 }
