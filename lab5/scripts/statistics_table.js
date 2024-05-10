@@ -40,6 +40,11 @@ export class StatisticsTable{
             button.onclick = () => this.gotoPage(i, data);
             paginationContainer.appendChild(button);
         }
+
+        const nextPageButton = document.createElement('button');
+        nextPageButton.textContent ='Next';
+        nextPageButton.onclick = () => this.gotoPage(1, data);
+        paginationContainer.appendChild(nextPageButton);
     }
     
     gotoPage = (pageNumber, data) => {
