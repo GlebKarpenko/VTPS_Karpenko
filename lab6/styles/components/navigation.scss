@@ -1,0 +1,32 @@
+.navigation-list {
+    width: 100%;
+    margin-bottom: 30px;
+
+    .navigation-link {
+        @include main-font-style();
+        margin-right: 2vw;
+        color: $red-color;
+        text-decoration: none;
+    }
+
+    .navigation-link:hover {
+        color: $red-dark-color;
+        transition: all 0.2s ease;
+    }
+
+    button {
+        @include main-font-style();
+        margin-left: auto;
+        padding: $input-field-padding 2.5 * $input-field-padding;
+        font-size: 16px;
+        color: $red-color;
+        background-color: white;
+        border: 1px solid $red-color;
+        transition: all 0.5s ease;
+    }
+
+    button:hover {
+        color: white;
+        background-color: $red-color;
+    }
+}

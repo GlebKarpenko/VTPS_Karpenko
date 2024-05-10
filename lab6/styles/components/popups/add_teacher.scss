@@ -1,0 +1,90 @@
+@import "popup.scss";
+
+#add-teacher {
+    width: 450px;
+    height: 700px;
+
+    .content {
+        padding: 20px; 
+
+        label {
+            @include thin-font-style();
+            font-size: small;
+            color: $grey-header-color;
+            margin-bottom: 3px;
+        }
+
+        input, select {
+            padding: 5px;
+        }
+
+        .form-row {
+            box-sizing: border-box;
+            display: flex;;
+            padding: 8px;
+
+            .form-cell {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                margin-right: 10px;
+                margin-left: 10px;
+
+                input {
+                    width: 100%;
+                }
+
+                input[type="checkbox"] {
+                    padding: 0px;
+                    width: 15px;
+                }
+
+                .form-cell:last-child {
+                    margin-right: 0;
+                }
+                
+                input {
+                    box-sizing: border-box;
+                }
+
+                .checkboxes {
+                    flex-direction: row;
+                    
+                    #check-label {
+                        margin-right: 20px;
+                    }
+
+                    input {
+                        border-radius: 50%;
+                    }
+                }
+
+                .color-selector {
+                    flex-direction: row;
+                }
+
+                #select-color {
+                    width: 50px;
+                }
+
+                input[type="submit"] {
+                    @include main-font-style();
+                    padding: 10px;
+                    color: $red-color;
+                    background-color: white;
+                    border: 1px solid $red-color;
+                    transition: all 0.5s ease;
+                }
+        
+                input[type="submit"]:hover {
+                    color: white;
+                    background-color: $red-color;
+                }
+            }
+        }
+    }
+}
+
+#add-teacher.active {
+    @include popupActive();
+}

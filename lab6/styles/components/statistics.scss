@@ -1,0 +1,48 @@
+#statistics-wrapper{
+    table {
+        @include thin-font-style();
+        $row-color: #f9f5f9;
+        width: 100%;
+
+        th {
+            border-bottom: 1px solid;
+            padding: 10px;
+            font-weight: 300;
+        }
+
+        th:first-child {
+            text-align: left;
+        }
+
+        tr:nth-child(even){
+            background-color: $row-color;
+        }
+
+        td {
+            font-weight: 300;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        td:first-child {
+            text-align: left;
+        }
+    }
+
+    #pagination-container {
+        margin-top: $page-top-margin;
+
+        button {
+            margin: 4px;
+            color: $link-primary-color;
+            background-color: transparent;
+            border: none;
+        }
+
+        button:focus{
+            color: $link-activated-color;
+        }
+    }
+}

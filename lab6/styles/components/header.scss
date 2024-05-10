@@ -1,0 +1,51 @@
+header {
+    flex-direction: row;
+    margin-bottom: 20px;
+
+    .logo-wrap {
+        width: min-content;
+        img {
+            min-width: 200px;
+            width: 10vw;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+    }
+
+    #search-bar {
+        margin-left: auto;
+
+        input, button {
+            padding-top: $input-field-padding;
+            padding-bottom: $input-field-padding;
+            font-size: small;
+        }
+
+        input {
+            @include thin-font-style();
+            width: 180px;
+            margin-right: 12px; 
+            transition: all 0.5s ease;
+        }
+
+        input:hover {
+            width: 20vw;
+            transition: all 0.5s ease;
+        }
+
+        button {
+            @include main-font-style();
+            color: $red-color;
+            background-color: white;
+            border: 1px solid $red-color;
+            padding-left: 2 * $input-field-padding;
+            padding-right: 2 * $input-field-padding;      
+            transition: all 0.5s ease;
+        }
+
+        button:hover {
+            color: white;
+            background-color: $red-color;
+        }
+    }
+}
