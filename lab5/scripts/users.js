@@ -11,6 +11,21 @@ export async function getMockUserData() {
     return mockData;
 }
 
+export async function getUserData(numberOfUsers) {
+    const url = `https://randomuser.me/api/?results=${numberOfUsers}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('No response from random users api.');
+        }
+        const data = await response.json();
+        return data.results;
+    } catch (error) {
+        console.error('Could not fetch random users.', error);
+        throw error;
+    }
+}
+
 export function addRequiredFields(objectArray) {
     const requiredFields = ["full_name", "gender", "note", "state", "city", "country", "favorite"];
 

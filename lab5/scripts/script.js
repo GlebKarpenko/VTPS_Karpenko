@@ -1,7 +1,7 @@
 import { TeacherDisplay } from "./teachers_display.js";
 import { TeacherInfo} from "./teacher_info.js";
 import { StatisticsTable } from "./statistics_table.js";
-import { formatUserData} from "./users.js";
+import { formatUserData, getUserData} from "./users.js";
 
 const leftButton = document.getElementById("slide-left");
 const rightButton = document.getElementById("slide-right");
@@ -21,9 +21,12 @@ rightButton.addEventListener('click', () => {
     });
 });
 
+// Fetch random users data
+const randomUsersData = await getUserData(50);
+
 // Top teachers and favorites
 const topTeachers = new TeacherDisplay(document.getElementById("top-teachers"));
-topTeachers.setWithMockData();
+topTeachers.setWithData(randomUsersData);
 topTeachers.generateHTML(topTeachers.teachers);
 
 const favoriteTeachers = new TeacherDisplay(document.getElementById("item-slider"));
@@ -136,7 +139,7 @@ function handleFilterChange(event) {
     topTeachers.generateHTML();
     addTeacherInfoListeners();
     addFavoritesListener();
-    topTeachers.setWithMockData();
+    topTeachers.setWithData(randomUsersData);
 }
 
 ageSelector.addEventListener("change", handleFilterChange);
@@ -160,7 +163,7 @@ function addSearchListener() {
         topTeachers.generateHTML();
         addTeacherInfoListeners();
         addFavoritesListener();
-        topTeachers.setWithMockData();
+        topTeachers.setWithData(randomUsersData);
     });
 }
 
@@ -169,7 +172,7 @@ addSearchListener();
 // Statistics table
 const tableElement = document.getElementById("statistics");
 let teacherStatisticDisplay = new TeacherDisplay(tableElement);
-teacherStatisticDisplay.setWithMockData();
+teacherStatisticDisplay.setWithData(randomUsersData.slice(0, 10));
 const statisticsData = teacherStatisticDisplay.teachers;
 
 const tableBodyElement = document.getElementById("statistics-body");

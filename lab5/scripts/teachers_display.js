@@ -3,7 +3,7 @@ import {
     formatUserData, 
     userIsValid, 
     filterMatchingUsers, 
-    filterUsers 
+    filterUsers, 
 } from "./users.js";
 import { randomUserMock } from "../assets/config/mock_users.js";
 
@@ -17,17 +17,29 @@ export class TeacherDisplay {
     }
 
     setWithMockData() {
-        let validData = [];
-        let mockUsers = addRequiredFields(randomUserMock);
-        mockUsers = formatUserData(randomUserMock);
-        
-        mockUsers.forEach(mockUser => {
-            if (userIsValid(mockUser)){
-                validData.push(mockUser);
-            }
-        });
+        this.teachers = this.formatData(randomUserMock);
+    }
 
-        this.teachers = validData;
+    formatData(data) {
+        let validData = [];
+        data = addRequiredFields(data);
+        data = formatUserData(data);
+        data.forEach(userData => {
+            if (userIsValid(userData)) {
+                validData.push(userData);
+            }
+        })
+
+        return validData;
+    }
+
+    setWithData(data) {
+        if (data.length > 0) {
+            this.teachers = this.formatData(data);
+        }
+        else {
+            this.setWithMockData();
+        }
     }
 
     generateHTML(){
