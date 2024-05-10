@@ -140,6 +140,7 @@ function handleFilterChange(event) {
     addTeacherInfoListeners();
     addFavoritesListener();
     statistics.displayPage(1, topTeachers.teachers);
+    addStatisticsSorting(topTeachers.teachers);
     topTeachers.setWithData(randomUsersData);
 }
 
@@ -165,6 +166,7 @@ function addSearchListener() {
         addTeacherInfoListeners();
         addFavoritesListener();
         statistics.displayPage(1, topTeachers.teachers);
+        addStatisticsSorting(topTeachers.teachers);
         topTeachers.setWithData(randomUsersData);
     });
 }
@@ -180,23 +182,26 @@ const statisticsData = teacherStatisticDisplay.teachers;
 const tableBodyElement = document.getElementById("statistics-body");
 let statistics = new StatisticsTable(tableElement, tableBodyElement, 10);
 
+console.log('teachers: ', topTeachers.teachers);
 statistics.displayPage(1, topTeachers.teachers);
+addStatisticsSorting(topTeachers.teachers);
 
-// Sorting by header
-const headers = {
-    "name-header-cell": "full_name",
-    "speciality-header": "course",
-    "age-header": "age",
-    "gender-header": "gender",
-    "country-header": "country"
-}
-
-for (const key in headers) {
-    let sortOrder = 'desc';
-    document.getElementById(key).addEventListener('click', () => {
-        sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
-        statistics.sort(headers[key], sortOrder, topTeachers.teachers);
-    });
+function addStatisticsSorting(data) {
+    const headers = {
+        "name-header-cell": "full_name",
+        "speciality-header": "course",
+        "age-header": "age",
+        "gender-header": "gender",
+        "country-header": "country"
+    }
+    
+    for (const key in headers) {
+        let sortOrder = 'desc';
+        document.getElementById(key).addEventListener('click', () => {
+            sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
+            statistics.sort(headers[key], sortOrder, data);
+        });
+    }
 }
 
 // Add teacher popup
@@ -259,6 +264,7 @@ function addFormTeacher(formData) {
     formData = formatUserData([formData])[0];
     topTeachers.addTeacher(formData);
     topTeachers.generateHTML();
+    addStatisticsSorting(topTeachers.teachers);
     addTeacherInfoListeners();
     addFavoritesListener();
     statistics.displayPage(1, topTeachers.teachers);
