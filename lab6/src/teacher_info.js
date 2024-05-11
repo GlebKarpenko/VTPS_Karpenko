@@ -1,4 +1,5 @@
 import dayjs from '../node_modules/dayjs';
+import L from '../node_modules/leaflet';
 
 export class TeacherInfo {
     constructor (popupElement) {

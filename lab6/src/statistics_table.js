@@ -1,10 +1,12 @@
 import { sortUsers } from "./users.js";
+import { renderStatisticsChart } from "./statistics_chart.js";
 
 export class StatisticsTable{
     constructor(tableElement, tableBodyElement, rowsPerPage) {
         this.statisticsElement = tableElement;
         this.tableBodyElement = tableBodyElement;
         this.rowsPerPage = rowsPerPage;
+        this.pageData = [];
     }
 
     generateHTML(data) {    
@@ -23,12 +25,16 @@ export class StatisticsTable{
         return template;
     }
 
+    getPageData() {
+        return this.pageData;
+    }
+
     displayPage = (pageNumber, data) => {
         const startIndex = (pageNumber - 1) * this.rowsPerPage;
         const endIndex = startIndex + this.rowsPerPage;
-        const pageData = data.slice(startIndex, endIndex);
+        this.pageData = data.slice(startIndex, endIndex);
 
-        this.tableBodyElement.innerHTML = this.generateHTML(pageData);
+        this.tableBodyElement.innerHTML = this.generateHTML(this.pageData);
 
         // Generate pagination buttons
         const paginationContainer = document.getElementById("pagination-container");
@@ -49,10 +55,12 @@ export class StatisticsTable{
     
     gotoPage = (pageNumber, data) => {
         this.displayPage(pageNumber, data);
+        renderStatisticsChart(this.getPageData());
     }
 
     sort(sortBy , order, data) {
         data = sortUsers(data, sortBy, order);
         this.displayPage(1, data);
+        renderStatisticsChart(this.getPageData());
     }
 }

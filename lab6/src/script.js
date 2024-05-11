@@ -1,11 +1,10 @@
-import _ from '../node_modules/leaflet';
-import Chart from '../node_modules/chart.js';
-import L from '../node_modules/leaflet';
+import _ from '../node_modules/lodash';
 
 import { TeacherDisplay } from "./teachers_display.js";
 import { TeacherInfo} from "./teacher_info.js";
 import { StatisticsTable } from "./statistics_table.js";
 import { getUserData} from "./users.js";
+import { renderStatisticsChart } from './statistics_chart.js';
 
 const leftButton = document.getElementById("slide-left");
 const rightButton = document.getElementById("slide-right");
@@ -44,6 +43,7 @@ function handleTopTeachersDataChange() {
     addFavoritesListener();
     statistics.displayPage(1, topTeachers.teachers);
     addStatisticsSorting(topTeachers.teachers);
+    renderStatisticsChart(statistics.getPageData());
     topTeachers.setWithData(randomUsersData);
 }
 
@@ -188,6 +188,7 @@ let statistics = new StatisticsTable(tableElement, tableBodyElement, 10);
 
 statistics.displayPage(1, topTeachers.teachers);
 addStatisticsSorting(topTeachers.teachers);
+renderStatisticsChart(statistics.getPageData());
 
 function addStatisticsSorting(data) {
     const headers = {
