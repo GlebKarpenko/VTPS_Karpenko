@@ -1,7 +1,7 @@
-import _ from 'lodash';
-import dayjs from 'day.js';
-import Chart from 'chart.js';
-import L from 'leaflet;'
+import _ from '../node_modules/leaflet';
+import dayjs from '../node_modules/dayjs';
+import Chart from '../node_modules/chart.js';
+import L from '../node_modules/leaflet';
 
 import { TeacherDisplay } from "./teachers_display.js";
 import { TeacherInfo} from "./teacher_info.js";
