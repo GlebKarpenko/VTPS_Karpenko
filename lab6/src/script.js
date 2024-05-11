@@ -65,6 +65,7 @@ function toggleTeacherInfo(teacher) {
     gridImage.addEventListener('click', () => {
         const teacherInfo = new TeacherInfo(document.getElementById("teacher-info-content"));
         teacherInfo.generateHTML(teacher);
+        teacherInfo.handleMapToggle(teacher);
 
         const addToFavorites = document.getElementById(`add-favorite-${teacher.id}`);
         addToFavorites.addEventListener('click', () => {
@@ -91,6 +92,7 @@ function toggleFavoriteStatus(teacher) {
     }
 
     teacherInfo.generateHTML(teacher);
+    teacherInfo.handleMapToggle(teacher);
 }
 
 function togglePopup(popupID){

@@ -475,6 +475,15 @@ header #search-bar button:hover {
 #teacher-info .content .pfp-container img {
   width: 100%;
 }
+#teacher-info .content .pfp-container a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: underline dashed;
+  color: #1a9cb0;
+}
+#teacher-info .content .pfp-container a:hover {
+  color: #2261a9;
+}
 #teacher-info .content .main-info {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -517,14 +526,15 @@ header #search-bar button:hover {
   font-size: 11px;
   color: #464547;
 }
-#teacher-info .content a {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  text-decoration: underline dashed;
-  color: #1a9cb0;
+#teacher-info .content #map-container {
+  position: relative;
+  width: 100%;
 }
-#teacher-info .content a:hover {
-  color: #2261a9;
+#teacher-info .content #map-container #map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 #teacher-info.active {
