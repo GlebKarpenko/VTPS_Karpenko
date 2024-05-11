@@ -1,5 +1,4 @@
 import _ from '../node_modules/leaflet';
-import dayjs from '../node_modules/dayjs';
 import Chart from '../node_modules/chart.js';
 import L from '../node_modules/leaflet';
 

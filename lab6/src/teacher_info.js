@@ -1,3 +1,5 @@
+import dayjs from '../node_modules/dayjs';
+
 export class TeacherInfo {
     constructor (popupElement) {
         this.popupElement = popupElement;
@@ -9,8 +11,13 @@ export class TeacherInfo {
             teacher.picture.thumbnail ?? 
             "assets/aboutus.jpg";
 
+        const daysToBirthDay = this.getDaysToBD(teacher.dob);
+
         let region = `${teacher.city}, ${teacher.country}`;
-        let ageGender = `${teacher.dob.age}, ${teacher.gender}`;
+        let ageGender = `
+            ${teacher.dob.age}, 
+            ${teacher.gender}, 
+            Days to birthday: ${daysToBirthDay}`;
         let icon = "fa-regular fa-star";
 
         if (teacher.favorite == true) {
@@ -36,5 +43,12 @@ export class TeacherInfo {
         <a href="#">toggle map</a>`;
 
         this.popupElement.innerHTML = template;
+    }
+
+    getDaysToBD(dob) {
+        const currentDate = dayjs();
+        const thisYearDB = dayjs(dob.date).year(currentDate.year());
+        const nextBD = thisYearDB > currentDate ? thisYearDB : thisYearDB.add(1, 'year');
+        return nextBD.diff(currentDate, "day");
     }
 }
